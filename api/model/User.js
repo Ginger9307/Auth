@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-// const { init } = require ('../dbConfig')
-// const { ObjectId } = require('mongodb')
-
 const userSchema = new mongoose.Schema ({
     name: {
         type: String,
