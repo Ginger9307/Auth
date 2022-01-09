@@ -25,6 +25,6 @@ services:
       - type: bind
         source: ./api
         target: /code
-    command: bash -c "npm install && npm start"    
+    command: bash -c "npm install && npm rebuild bcrypt --build-from-source && npm start"    
 volumes:
   dbdata:
