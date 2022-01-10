@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 
 // register route
 router.post('/register', async (req, res) => {
-    // validatation check
+    // data validatation 
     const {error} = validation.registerValidation(req.body)
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -32,10 +32,27 @@ router.post('/register', async (req, res) => {
         } else {
             res.send(result);
         }
-
     });
+});
+
+router.post('/login', async (req, res) => {
+    // data validatation 
+    const {error} = validation.loginValidation(req.body)
+    if (error) return res.status(400).send(error.details[0].message);
+
+    // if the user is not exist
+    const user = await User.findOne({email: req.body.email});
+    if (!user) return res.status(400).send("User or password is wrorg");
+    console.log(user);
+    
+    // if the password is wrong
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    if(!validPassword) return res.status(400).send("User or password is wrorg")
+
+    res.send("Loged in!")
 
 });
+
 
 module.exports = router;
 
