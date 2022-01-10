@@ -16,3 +16,10 @@ Content-Type: application/json
     "email": "james6@google.com",
     "password" : "james9"
 }
+
+###
+
+GET http://localhost:3000/api/posts
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWRhMjVlZjIxMDNiMDhlNDkzZWQwOTAiLCJpYXQiOjE2NDE4MjQyOTF9.9xIQufjSi_fzKL9K5fstbI9zPeexhp8AokwYUT53LbU
+

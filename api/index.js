@@ -17,41 +17,18 @@ mongoose.connect(process.env.DB_CONNECT, {
 
 // import routes
 const authRoute = require('./routes/auth');
+const postRoute = require('./routes/posts');
 
 // middleware
 app.use(express.json());
 
-// routre middlewares
+// route middlewares
 app.use('/api/user', authRoute);
-
-// app.post('/register', (req, res) => {
-    
-//     // const user = new User({
-//     //     name: req.body.name,
-//     //     email: req.body.email,
-//     //     password: req.body.password
-//     // });
-    
-//     const user = {
-//         name: req.body.name,
-//         email: req.body.email,
-//         password: req.body.password
-//     }
-//     console.log(user)
-//     console.log(req)
-
-//     try {
-//         // const savedUser = user.save();
-//         // res.send(savedUser);
-//         res.send(user)
-//     } catch (error) {
-//         res.status(400).send(error);
-//     }
-// })       
+app.use('/api/posts', postRoute);
 
 // root response
 app.get('/', (req,res) => {
-    res.send('Over')
+    res.send('Copy you! Over')
 })
 
 // start server

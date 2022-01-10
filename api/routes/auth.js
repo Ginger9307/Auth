@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
     });
 });
 
-
+// login router
 router.post('/login', async (req, res) => {
     // data validatation 
     const {error} = validation.loginValidation(req.body)
